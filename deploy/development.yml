@@ -1,0 +1,14 @@
+version: '2'
+services:
+  demo_website:
+    build:
+      context: ..
+    image: demo_website
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - ..:/usr/src/app
+    command: sh -c "yarn install && nodemon app.js"
+    environment:
+      - DEBUG
